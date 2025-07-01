@@ -255,6 +255,7 @@ export class ImportExportService {
      */
     const template = {
       Anthropic: '',
+      Cerebras: '',
       OpenAI: '',
       Google: '',
       Groq: '',
