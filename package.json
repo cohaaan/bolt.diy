@@ -28,6 +28,7 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "pnpm run build && pnpm run start",
+    "start:railway": "node server.js",
     "prepare": "husky",
     "clean": "node scripts/clean.js",
     "electron:dev": "node scripts/electron-dev.mjs",
@@ -96,8 +97,10 @@
     "@radix-ui/react-tooltip": "^1.1.4",
     "@remix-run/cloudflare": "^2.15.2",
     "@remix-run/cloudflare-pages": "^2.15.2",
+    "@remix-run/express": "^2.15.2",
     "@remix-run/node": "^2.15.2",
     "@remix-run/react": "^2.15.2",
+    "express": "^4.18.2",
     "@tanstack/react-virtual": "^3.13.0",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@uiw/codemirror-theme-vscode": "^4.23.6",
@@ -159,11 +162,14 @@
     "zod": "^3.24.1",
     "zustand": "^5.0.3"
   },
+  "optionalDependencies": {
+    "puppeteer": "^21.6.1"
+  },
   "devDependencies": {
     "@blitz/eslint-plugin": "0.1.0",
     "@cloudflare/workers-types": "^4.20251011.0",
     "@electron/notarize": "^2.5.0",
-    "@iconify-json/ph": "^1.2.1",
+    "@iconify-json/ph": "^1.2.2",
     "@iconify/types": "^2.0.0",
     "@remix-run/dev": "^2.15.2",
     "@remix-run/serve": "^2.15.2",

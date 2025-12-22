@@ -1,0 +1,19 @@
+[build]
+builder = "NIXPACKS"
+
+[build.nixpacks]
+# Install Chrome dependencies for Puppeteer
+aptPkgs = ["chromium", "chromium-sandbox"]
+
+[deploy]
+startCommand = "node server.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[env]
+NODE_ENV = "production"
+# Puppeteer configuration for Railway
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium"

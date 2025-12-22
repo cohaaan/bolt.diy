@@ -19,6 +19,12 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    optimizeDeps: {
+      exclude: ['puppeteer', '@puppeteer/browsers'],
+    },
+    ssr: {
+      noExternal: ['puppeteer', '@puppeteer/browsers'],
+    },
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],

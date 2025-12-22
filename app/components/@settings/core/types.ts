@@ -17,7 +17,9 @@ export type TabType =
   | 'vercel'
   | 'supabase'
   | 'event-logs'
-  | 'mcp';
+  | 'mcp'
+  | 'agents'
+  | 'testing';
 
 export type WindowType = 'user' | 'developer';
 
@@ -81,6 +83,8 @@ export const TAB_LABELS: Record<TabType, string> = {
   supabase: 'Supabase',
   'event-logs': 'Event Logs',
   mcp: 'MCP Servers',
+  agents: 'Agent Pipeline',
+  testing: 'Auto Testing',
 };
 
 export const categoryLabels: Record<SettingCategory, string> = {

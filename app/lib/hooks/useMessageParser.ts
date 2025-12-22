@@ -2,6 +2,7 @@ import type { Message } from 'ai';
 import { useCallback, useState } from 'react';
 import { EnhancedStreamingMessageParser } from '~/lib/runtime/enhanced-message-parser';
 import { workbenchStore } from '~/lib/stores/workbench';
+import { autoTestRunner } from '~/lib/services/autoTestRunner';
 import { createScopedLogger } from '~/utils/logger';
 
 const logger = createScopedLogger('useMessageParser');
@@ -18,6 +19,11 @@ const messageParser = new EnhancedStreamingMessageParser({
       logger.trace('onArtifactClose');
 
       workbenchStore.updateArtifact(data, { closed: true });
+
+      // Trigger auto-testing when artifact is complete
+      if (data.artifactId) {
+        autoTestRunner.scheduleTest(data.artifactId, data.messageId);
+      }
     },
     onActionOpen: (data) => {
       logger.trace('onActionOpen', data.action);

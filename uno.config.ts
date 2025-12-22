@@ -242,6 +242,10 @@ export default defineConfig({
       collections: {
         ...customIconCollection,
       },
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+      },
       unit: 'em',
     }),
   ],
